@@ -1,25 +1,22 @@
-#include "Header.h"
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <ctime>
+#pragma warning(disable:4996)
+
+using namespace std;
 
 int main() {
-	//Guessing game
-	srand(time(0));
-	int guess, answer = (rand() % 10 + 1), tries = 0, limit = 3;
-	do{
-		cout << "Enter a number:";
-		cin >> guess;
-		if (guess < answer) {
-			cout << "Too small\n";
+	//Prime number
+	int n;
+	bool prime = true;
+	cout << "Number:";
+	cin >> n;
+	for (int i = 2; i < n; i++) {
+		if (n % i == 0) {
+			prime = false;
+			break;
 		}
-		else if (guess > answer) {
-			cout << "Too big\n";
-		}
-		tries++;
-	} while (tries != limit && guess != answer);
-
-	if (guess == answer) {
-		cout << "You win" << endl;
 	}
-	else {
-		cout << "Next time,answer:" << answer << endl;
-	}
+	prime ? cout << "Prime number" : cout << "Not a prime number";
 }
